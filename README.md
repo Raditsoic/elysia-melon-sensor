@@ -7,6 +7,11 @@ bun create elysia ./elysia-example
 ```
 
 ## Development
+Copy .env.example to .env.dev
+```bash
+cp .env.example .env.dev
+```
+
 To start the development server run:
 ```bash
 bun run dev
