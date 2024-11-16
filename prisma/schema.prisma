@@ -33,3 +33,33 @@ model Kalium {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Ph {
+  id        Int      @id @default(autoincrement())
+  value     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Temperature {
+  id        Int      @id @default(autoincrement())
+  value     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Moisture {
+  id        Int      @id @default(autoincrement())
+  value     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Conductivity {
+  id        Int      @id @default(autoincrement())
+  value     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+

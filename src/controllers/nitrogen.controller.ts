@@ -1,6 +1,5 @@
-import { NitrogenService } from '../services/nitrogen.service'
-import { CreateNitrogenDTO } from '../types/nitrogen'
-import { PaginationQuery } from '../types'
+import { NitrogenService } from '../services'
+import { PaginationQuery, CreateNitrogenDTO } from '../types'
 
 export class NitrogenController {
   private nitrogenService: NitrogenService

@@ -1,5 +1,5 @@
 import { Elysia, t } from "elysia"
-import { PhosporController } from "../controllers/phospor.controller"
+import { PhosporController } from "../controllers"
 
 const phosporController = new PhosporController()
 

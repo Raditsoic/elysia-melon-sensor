@@ -1,5 +1,5 @@
 import { prisma } from '../config/database'
-import { CreatePhosporDTO } from '../types/phospor'
+import { CreatePhosporDTO } from '../types'
 
 export class PhosporService {
   async getAll(page: number = 1, limit: number = 20, sort: 'asc' | 'desc' = 'asc') {

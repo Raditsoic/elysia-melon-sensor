@@ -1,13 +1,13 @@
 import { prisma } from '../config/database'
-import { CreateKaliumDTO } from '../types'
+import { CreateConductivityDTO } from '../types'
 
-export class KaliumService {
+export class ConductivityService {
   async getAll(page: number = 1, limit: number = 20, sort: 'asc' | 'desc' = 'asc') {
     const skip = (page - 1) * limit
     
     const [total, data] = await Promise.all([
-      prisma.kalium.count(),
-      prisma.kalium.findMany({
+      prisma.conductivity.count(),
+      prisma.conductivity.findMany({
         skip,
         take: limit,
         orderBy: {
@@ -27,8 +27,8 @@ export class KaliumService {
     }
   }
 
-  async create(data: CreateKaliumDTO) {
-    return await prisma.kalium.create({
+  async create(data: CreateConductivityDTO) {
+    return await prisma.conductivity.create({
       data: {
         value: data.value
       }
@@ -36,19 +36,19 @@ export class KaliumService {
   }
 
   async getById(id: number) {
-    return await prisma.kalium.findUnique({
+    return await prisma.conductivity.findUnique({
       where: { id }
     })
   }
 
   async delete(id: number) {
-    return await prisma.kalium.delete({
+    return await prisma.conductivity.delete({
       where: { id }
     })
   }
 
   async update(id: number, value: number) {
-    return await prisma.kalium.update({
+    return await prisma.conductivity.update({
       where: { id },
       data: { value }
     })

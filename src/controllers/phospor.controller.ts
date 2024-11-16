@@ -1,6 +1,5 @@
-import { PhosporService } from '../services/phospor.service'
-import { CreatePhosporDTO } from '../types/phospor'
-import { PaginationQuery } from '../types'
+import { PhosporService } from '../services'
+import { PaginationQuery, CreatePhosporDTO } from '../types'
 
 export class PhosporController {
   private phosporService: PhosporService

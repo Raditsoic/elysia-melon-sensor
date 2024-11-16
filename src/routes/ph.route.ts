@@ -1,9 +1,9 @@
 import { Elysia, t } from "elysia"
-import { NitrogenController } from "../controllers"
+import { PhController } from "../controllers"
 
-const nitrogenController = new NitrogenController()
+const phController = new PhController()
 
-const NitrogenSchema = {
+const PhSchema = {
   body: t.Object({
     value: t.Number()
   })
@@ -17,38 +17,38 @@ const PaginationSchema = {
   })
 }
 
-export const nitrogen = new Elysia({ prefix: '/nitrogen' })
+export const ph = new Elysia({ prefix: '/ph' })
   .get("/", ({ query }) => 
-    nitrogenController.getAll({ query }), {
+    phController.getAll({ query }), {
     ...PaginationSchema
   })
   
-  // Get nitrogen by id
+  // Get ph by id
   .get("/:id", ({ params }) => 
-    nitrogenController.getById({ params }), {
+    phController.getById({ params }), {
     params: t.Object({
       id: t.String()
     })
   })
   
-  // Create new nitrogen
+  // Create new ph
   .post("/", ({ body }) => 
-    nitrogenController.create({ body }), {
-    ...NitrogenSchema
+    phController.create({ body }), {
+    ...PhSchema
   })
   
-  // Update nitrogen
+  // Update ph
   .put("/:id", ({ params, body }) => 
-    nitrogenController.update({ params, body }), {
+    phController.update({ params, body }), {
     params: t.Object({
       id: t.String()
     }),
-    ...NitrogenSchema
+    ...PhSchema
   })
   
-  // Delete nitrogen
+  // Delete ph
   .delete("/:id", ({ params }) => 
-    nitrogenController.delete({ params }), {
+    phController.delete({ params }), {
     params: t.Object({
       id: t.String()
     })

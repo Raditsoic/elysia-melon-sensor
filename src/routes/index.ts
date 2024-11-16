@@ -1,0 +1,7 @@
+export * from './kalium.route'
+export * from './nitrogen.route'
+export * from './ph.route'
+export * from './phospor.route'
+export * from './temperature.route'
+export * from './moisture.route'
+export * from './conductivity.route'

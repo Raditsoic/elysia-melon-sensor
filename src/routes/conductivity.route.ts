@@ -1,9 +1,9 @@
 import { Elysia, t } from "elysia"
-import { NitrogenController } from "../controllers"
+import { ConductivityController } from "../controllers"
 
-const nitrogenController = new NitrogenController()
+const conductivityController = new ConductivityController()
 
-const NitrogenSchema = {
+const ConductivitySchema = {
   body: t.Object({
     value: t.Number()
   })
@@ -17,38 +17,38 @@ const PaginationSchema = {
   })
 }
 
-export const nitrogen = new Elysia({ prefix: '/nitrogen' })
+export const conductivity = new Elysia({ prefix: '/conductivity' })
   .get("/", ({ query }) => 
-    nitrogenController.getAll({ query }), {
+    conductivityController.getAll({ query }), {
     ...PaginationSchema
   })
   
-  // Get nitrogen by id
+  // Get conductivity by id
   .get("/:id", ({ params }) => 
-    nitrogenController.getById({ params }), {
+    conductivityController.getById({ params }), {
     params: t.Object({
       id: t.String()
     })
   })
   
-  // Create new nitrogen
+  // Create new conductivity
   .post("/", ({ body }) => 
-    nitrogenController.create({ body }), {
-    ...NitrogenSchema
+    conductivityController.create({ body }), {
+    ...ConductivitySchema
   })
   
-  // Update nitrogen
+  // Update conductivity
   .put("/:id", ({ params, body }) => 
-    nitrogenController.update({ params, body }), {
+    conductivityController.update({ params, body }), {
     params: t.Object({
       id: t.String()
     }),
-    ...NitrogenSchema
+    ...ConductivitySchema
   })
   
-  // Delete nitrogen
+  // Delete conductivity
   .delete("/:id", ({ params }) => 
-    nitrogenController.delete({ params }), {
+    conductivityController.delete({ params }), {
     params: t.Object({
       id: t.String()
     })

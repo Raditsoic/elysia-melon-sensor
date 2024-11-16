@@ -1,5 +1,5 @@
 import { Elysia, t } from "elysia"
-import { KaliumController } from "../controllers/kalium.controller"
+import { KaliumController } from "../controllers"
 
 const kaliumController = new KaliumController()
 

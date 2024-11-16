@@ -1,6 +1,5 @@
-import { KaliumService } from '../services/kalium.service'
-import { CreateKaliumDTO } from '../types/kalium'
-import { PaginationQuery } from '../types'
+import { KaliumService } from '../services'
+import { PaginationQuery, CreateKaliumDTO } from '../types'
 
 export class KaliumController {
   private kaliumService: KaliumService

@@ -1,0 +1,13 @@
+version: '3.9'
+name: 'melon-cms'
+
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src:/app/src 
+      - ./.env.dev:/app/.env

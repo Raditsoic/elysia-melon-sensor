@@ -1,5 +1,5 @@
 import { prisma } from '../config/database'
-import { CreateNitrogenDTO } from '../types/nitrogen'
+import { CreateNitrogenDTO } from '../types'
 
 export class NitrogenService {
   async getAll(page: number = 1, limit: number = 20, sort: 'asc' | 'desc' = 'asc') {

@@ -1,9 +1,9 @@
 import { Elysia, t } from "elysia"
-import { NitrogenController } from "../controllers"
+import { TemperatureController } from "../controllers"
 
-const nitrogenController = new NitrogenController()
+const temperatureController = new TemperatureController()
 
-const NitrogenSchema = {
+const TemperatureSchema = {
   body: t.Object({
     value: t.Number()
   })
@@ -17,38 +17,38 @@ const PaginationSchema = {
   })
 }
 
-export const nitrogen = new Elysia({ prefix: '/nitrogen' })
+export const temperature = new Elysia({ prefix: '/temperature' })
   .get("/", ({ query }) => 
-    nitrogenController.getAll({ query }), {
+    temperatureController.getAll({ query }), {
     ...PaginationSchema
   })
   
-  // Get nitrogen by id
+  // Get temperature by id
   .get("/:id", ({ params }) => 
-    nitrogenController.getById({ params }), {
+    temperatureController.getById({ params }), {
     params: t.Object({
       id: t.String()
     })
   })
   
-  // Create new nitrogen
+  // Create new temperature
   .post("/", ({ body }) => 
-    nitrogenController.create({ body }), {
-    ...NitrogenSchema
+    temperatureController.create({ body }), {
+    ...TemperatureSchema
   })
   
-  // Update nitrogen
+  // Update temperature
   .put("/:id", ({ params, body }) => 
-    nitrogenController.update({ params, body }), {
+    temperatureController.update({ params, body }), {
     params: t.Object({
       id: t.String()
     }),
-    ...NitrogenSchema
+    ...TemperatureSchema
   })
   
-  // Delete nitrogen
+  // Delete temperature
   .delete("/:id", ({ params }) => 
-    nitrogenController.delete({ params }), {
+    temperatureController.delete({ params }), {
     params: t.Object({
       id: t.String()
     })

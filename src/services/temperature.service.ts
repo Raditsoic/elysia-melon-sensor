@@ -1,13 +1,13 @@
 import { prisma } from '../config/database'
-import { CreateKaliumDTO } from '../types'
+import { CreateTemperatureDTO } from '../types'
 
-export class KaliumService {
+export class TemperatureService {
   async getAll(page: number = 1, limit: number = 20, sort: 'asc' | 'desc' = 'asc') {
     const skip = (page - 1) * limit
     
     const [total, data] = await Promise.all([
-      prisma.kalium.count(),
-      prisma.kalium.findMany({
+      prisma.temperature.count(),
+      prisma.temperature.findMany({
         skip,
         take: limit,
         orderBy: {
@@ -27,8 +27,8 @@ export class KaliumService {
     }
   }
 
-  async create(data: CreateKaliumDTO) {
-    return await prisma.kalium.create({
+  async create(data: CreateTemperatureDTO) {
+    return await prisma.temperature.create({
       data: {
         value: data.value
       }
@@ -36,19 +36,19 @@ export class KaliumService {
   }
 
   async getById(id: number) {
-    return await prisma.kalium.findUnique({
+    return await prisma.temperature.findUnique({
       where: { id }
     })
   }
 
   async delete(id: number) {
-    return await prisma.kalium.delete({
+    return await prisma.temperature.delete({
       where: { id }
     })
   }
 
   async update(id: number, value: number) {
-    return await prisma.kalium.update({
+    return await prisma.temperature.update({
       where: { id },
       data: { value }
     })
