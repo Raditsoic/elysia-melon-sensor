@@ -1,8 +1,14 @@
 import { Elysia } from "elysia";
 import { swagger } from '@elysiajs/swagger'
-import { nitrogen } from "./routes/nitrogen.route";
-import { phospor } from "./routes/phospor.route";
-import { kalium } from "./routes/kalium.route";
+import { 
+  nitrogen,
+  phospor,
+  kalium,
+  ph,
+  moisture,
+  temperature,
+  conductivity,
+ } from "./routes";
 
 const app = new Elysia()
     .use(swagger()) 
@@ -10,6 +16,10 @@ const app = new Elysia()
     .use(nitrogen)
     .use(phospor)
     .use(kalium)
+    .use(ph)
+    .use(moisture)
+    .use(temperature)
+    .use(conductivity)
     .listen(3000); 
 
 console.log(
