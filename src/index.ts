@@ -1,25 +1,13 @@
 import { Elysia } from "elysia";
 import { swagger } from '@elysiajs/swagger'
 import { 
-  nitrogen,
-  phospor,
-  kalium,
-  ph,
-  moisture,
-  temperature,
-  conductivity,
+  sensorData
  } from "./routes";
 
 const app = new Elysia()
     .use(swagger()) 
     .get("/", () => "Hello Elysia")
-    .use(nitrogen)
-    .use(phospor)
-    .use(kalium)
-    .use(ph)
-    .use(moisture)
-    .use(temperature)
-    .use(conductivity)
+    .use(sensorData)
     .listen(3000); 
 
 console.log(

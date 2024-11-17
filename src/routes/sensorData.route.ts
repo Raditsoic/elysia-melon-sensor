@@ -1,11 +1,17 @@
 import { Elysia, t } from "elysia"
-import { TemperatureController } from "../controllers"
+import { SensorDataController } from "../controllers"
 
-const temperatureController = new TemperatureController()
+const sensorDataController = new SensorDataController()
 
-const TemperatureSchema = {
+const sensorDataSchema = {
   body: t.Object({
-    value: t.Number()
+    nitrogen: t.Number(),
+    phospor: t.Number(),
+    kalium: t.Number(),
+    ph: t.Number(),
+    temperature: t.Number(),
+    moisture: t.Number(),
+    conductivity: t.Number(),
   })
 }
 
@@ -17,15 +23,15 @@ const PaginationSchema = {
   })
 }
 
-export const temperature = new Elysia({ prefix: '/temperature' })
+export const sensorData = new Elysia({ prefix: '/sensor-data' })
   .get("/", ({ query }) => 
-    temperatureController.getAll({ query }), {
+    sensorDataController.getAll({ query }), {
     ...PaginationSchema
   })
   
   // Get temperature by id
   .get("/:id", ({ params }) => 
-    temperatureController.getById({ params }), {
+    sensorDataController.getById({ params }), {
     params: t.Object({
       id: t.String()
     })
@@ -33,22 +39,22 @@ export const temperature = new Elysia({ prefix: '/temperature' })
   
   // Create new temperature
   .post("/", ({ body }) => 
-    temperatureController.create({ body }), {
-    ...TemperatureSchema
+    sensorDataController.create({ body }), {
+    ...sensorDataSchema
   })
   
   // Update temperature
   .put("/:id", ({ params, body }) => 
-    temperatureController.update({ params, body }), {
+    sensorDataController.update({ params, body }), {
     params: t.Object({
       id: t.String()
     }),
-    ...TemperatureSchema
+    ...sensorDataSchema
   })
   
   // Delete temperature
   .delete("/:id", ({ params }) => 
-    temperatureController.delete({ params }), {
+    sensorDataController.delete({ params }), {
     params: t.Object({
       id: t.String()
     })

@@ -2,8 +2,7 @@ FROM oven/bun:latest
 
 WORKDIR /app
 
-COPY package.json ./
-COPY bun.lockb ./
+COPY package.json bun.lockb ./
 
 RUN bun install --production
 
@@ -19,5 +18,5 @@ ENV NODE_ENV=development
 
 EXPOSE 3000
 
-CMD ["bun", "src/index.ts"]
+CMD ["sh", "-c", "bunx prisma migrate deploy && bun src/index.ts"]
 

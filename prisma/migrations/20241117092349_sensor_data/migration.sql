@@ -1,0 +1,14 @@
+-- CreateTable
+CREATE TABLE "SensorData" (
+    "id" SERIAL NOT NULL,
+    "nitrogen" DOUBLE PRECISION NOT NULL,
+    "phospor" DOUBLE PRECISION NOT NULL,
+    "kalium" DOUBLE PRECISION NOT NULL,
+    "ph" DOUBLE PRECISION NOT NULL,
+    "temperature" DOUBLE PRECISION NOT NULL,
+    "moisture" DOUBLE PRECISION NOT NULL,
+    "conductivity" DOUBLE PRECISION NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "SensorData_pkey" PRIMARY KEY ("id")
+);
